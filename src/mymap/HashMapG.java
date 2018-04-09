@@ -56,6 +56,8 @@ public class HashMapG<K,V> {
 		}
 			
 		if((double)load/size>=loadf) {
+			
+			System.out.println("calling resize");
 			resize();			
 		}
 		
@@ -68,6 +70,18 @@ public class HashMapG<K,V> {
 	private void resize() {
 		
 		//abhi nhi likha 
+		
+		 EntryG[] entrySet_temp=new EntryG[size*2];
+		 for(int i=0;i<size;i++) {
+			 if(entrySet[i]!=null)
+				 entrySet_temp[i]=entrySet[i];
+		 }
+		 
+		 size*=2;
+		 load/=2;
+		 entrySet=entrySet_temp;
+			
+		
 		
 	}
 
